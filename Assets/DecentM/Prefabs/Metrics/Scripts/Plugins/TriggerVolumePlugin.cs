@@ -1,26 +1,16 @@
-﻿using System;
-using UdonSharp;
-using UnityEngine;
-using VRC.SDKBase;
-using VRC.Udon;
+﻿using VRC.SDKBase;
 
 namespace DecentM.Metrics.Plugins
 {
-    public class TriggerVolumePlugin : MetricsPlugin
+    public class TriggerVolumePlugin : IndividualTrackingPlugin
     {
-        public string metricName = "";
-
         private bool locked = true;
         private bool reportedState = false;
 
         private void DoReport(bool state)
         {
             VRCUrl url = this.urlStore.GetTriggerUrl(this.metricName, state);
-            if (url == null)
-            {
-                Debug.Log("URL missing");
-                return;
-            }
+            if (url == null) return;
 
             this.system.RecordMetric(url, Metric.Trigger);
             this.reportedState = state;
