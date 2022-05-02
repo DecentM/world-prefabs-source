@@ -12,7 +12,7 @@ using UdonSharp;
 
 namespace DecentM.EditorTools
 {
-    public class DEditor : Editor
+    public class Inspector : Editor
     {
         public struct EnumerableOption
         {
@@ -60,13 +60,26 @@ namespace DecentM.EditorTools
             EditorGUI.LabelField(position, $" {label}");
         }
 
-        public static void SavePrefabModifications(UnityEngine.Object @object)
+        public static void SaveModifications(UnityEngine.Object @object)
+        {
+            SerializedObject serializedObject = new SerializedObject(@object);
+            Inspector.SaveModifications(@object, serializedObject);
+        }
+
+        public static void SaveModifications(UnityEngine.Object @object, SerializedObject serializedObject)
         {
             if (PrefabUtility.IsPartOfAnyPrefab(@object))
             {
                 PrefabUtility.RecordPrefabInstancePropertyModifications(@object);
                 EditorUtility.SetDirty(@object);
             }
+
+            serializedObject.ApplyModifiedProperties();
+        }
+
+        protected void SaveModifications()
+        {
+            Inspector.SaveModifications(this.target, this.serializedObject);
         }
 
         protected ReorderableList CreateReorderableList(SerializedObject serializedObject, string propertyPath)
@@ -134,15 +147,63 @@ namespace DecentM.EditorTools
             EditorGUILayout.HelpBox(contents, type);
         }
 
+        protected void DrawImage(Texture image, Rect rect)
+        {
+            if (image == null) return;
+
+            EditorGUI.DrawPreviewTexture(rect, image);
+        }
+
         protected void DrawImage(Texture image)
         {
+            if (image == null) return;
+
             float imageAspectRatio = 1f * image.width / image.height;
 
             Rect drawRect = EditorGUILayout.GetControlRect(false, Screen.width / imageAspectRatio);
             drawRect.x = 0;
             drawRect.width = Screen.width;
 
-            EditorGUI.DrawPreviewTexture(drawRect, image);
+            this.DrawImage(image, drawRect);
+        }
+
+        protected Rect DrawRegion(float height, Vector4 margin, Vector4 padding)
+        {
+            Rect drawRect = EditorGUILayout.GetControlRect(false, height);
+
+            /**
+             * =================================|
+             * |              ^ y               |
+             * |--------------------------------|
+             * |< x |                       z > |
+             * |--------------------------------|
+             * |              v w               |
+             * =================================|
+             */
+
+            drawRect.width -= (margin.z + margin.x);
+            drawRect.height -= (margin.w + margin.y);
+            drawRect.x += margin.x;
+            drawRect.y += margin.y;
+
+            return this.GetRectInside(drawRect, padding);
+        }
+
+        protected Rect GetRectInside(Rect parent, Vector4 padding)
+        {
+            Rect contentRect = new Rect(parent);
+
+            contentRect.width -= (padding.z + padding.x);
+            contentRect.height -= (padding.w + padding.y);
+            contentRect.x += padding.x;
+            contentRect.y += padding.y;
+
+            return contentRect;
+        }
+
+        protected Rect DrawRegion(float height)
+        {
+            return this.DrawRegion(height, new Vector4(0, 0, 0, 0), new Vector4(0, 0, 0, 0));
         }
 
         protected bool Button(string label, float progress = 0f)

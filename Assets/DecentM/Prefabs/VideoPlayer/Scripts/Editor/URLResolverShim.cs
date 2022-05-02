@@ -28,7 +28,7 @@ namespace DecentM.VideoPlayer
         static void SetupURLResolveCallback()
         {
             string[] splitPath = Application.dataPath.Split('/', '\\');
-            youtubeDLPath = $"{String.Join("\\", splitPath)}\\DecentM\\Prefabs\\VideoPlayer\\Editor\\Bin\\yt-dlp.exe";
+            youtubeDLPath = $"{String.Join("\\", splitPath)}\\DecentM\\Prefabs\\VideoPlayer\\Scripts\\Editor\\Bin\\yt-dlp.exe";
 
             if (!File.Exists(youtubeDLPath))
             {

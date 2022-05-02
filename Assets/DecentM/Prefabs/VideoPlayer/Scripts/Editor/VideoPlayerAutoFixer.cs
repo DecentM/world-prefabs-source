@@ -28,7 +28,7 @@ namespace DecentM.VideoPlayer
                     plugin.system = requirements.system;
                     plugin.pubsubHosts = new Pubsub.PubsubHost[] { requirements.events };
 
-                    DEditor.SavePrefabModifications(plugin);
+                    Inspector.SaveModifications(plugin);
                 }
             }
 
