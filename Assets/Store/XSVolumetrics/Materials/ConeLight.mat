@@ -57,12 +57,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _BumpScale: 1
+    - _CullMode: 2
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
-    - _DistFade: 0.7
+    - _DistFade: 1
     - _DstBlend: 0
-    - _FadeAmt: 0.5
-    - _FadeStrength: 4.08
+    - _FadeAmt: 0.96
+    - _FadePow: 1
+    - _FadeStrength: 4.47
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -75,7 +77,8 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
+    - _UseSunColour: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 9.574884, g: 10.134001, b: 0, a: 1}
+    - _Color: {r: 13.529688, g: 13.529688, b: 13.529688, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

@@ -1,5 +1,4 @@
-﻿
-using UdonSharp;
+﻿using UdonSharp;
 using UnityEngine;
 using VRC.SDKBase;
 using VRC.Udon;
@@ -29,13 +28,16 @@ public class VideoScreenRealtimeLight : UdonSharpBehaviour
 
     private void FixedUpdate()
     {
-        if (!this.system.IsPlaying() || this.light == null) return;
+        if (!this.system.IsPlaying() || this.light == null)
+            return;
 
         this.elapsed += Time.fixedUnscaledDeltaTime;
-        if (this.elapsed <= 0.1f) return;
+        if (this.elapsed <= 0.1f)
+            return;
         this.elapsed = 0;
 
-        if (index >= this.history.Length) index = 0;
+        if (index >= this.history.Length)
+            index = 0;
         history[index] = this.analysis.GetAverage();
         index++;
 
