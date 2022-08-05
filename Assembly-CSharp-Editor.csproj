@@ -56,27 +56,18 @@
     <Compile Include="Assets\DecentM\Editor\ArabicLigaturesPreprocessor.cs" />
     <Compile Include="Assets\DecentM\Editor\CombinationsGenerator.cs" />
     <Compile Include="Assets\DecentM\Editor\ComponentCollector.cs" />
-    <Compile Include="Assets\DecentM\Editor\EditorAssets.cs" />
-    <Compile Include="Assets\DecentM\Editor\ImageStore.cs" />
     <Compile Include="Assets\DecentM\Editor\Inspector.cs" />
     <Compile Include="Assets\DecentM\Editor\MaterialIcons\Mappings.cs" />
     <Compile Include="Assets\DecentM\Editor\MaterialIcons\MaterialIcons.cs" />
     <Compile Include="Assets\DecentM\Editor\PerformanceGovernor\PerformanceGovernorInspector.cs" />
     <Compile Include="Assets\DecentM\Editor\RandomStringGenerator.cs" />
-    <Compile Include="Assets\DecentM\Editor\SelfLocator\SelfLocatorAsset.cs" />
-    <Compile Include="Assets\DecentM\Editor\SelfLocator\SelfLocatorImporter.cs" />
-    <Compile Include="Assets\DecentM\Editor\SelfLocator\SelfLocatorInspector.cs" />
     <Compile Include="Assets\DecentM\Editor\TextProcessing.cs" />
     <Compile Include="Assets\DecentM\Editor\Utilities.cs" />
-    <Compile Include="Assets\DecentM\Editor\VideoPlayer\EditorAssets.cs" />
-    <Compile Include="Assets\DecentM\Editor\VideoPlayer\Importers\MetadataImporter.cs" />
     <Compile Include="Assets\DecentM\Editor\VideoPlayer\Importers\SubtitleImporter.cs" />
-    <Compile Include="Assets\DecentM\Editor\VideoPlayer\Importers\VideoMetadataAsset.cs" />
     <Compile Include="Assets\DecentM\Editor\VideoPlayer\Inspectors\SubtitleImporterInspector.cs" />
     <Compile Include="Assets\DecentM\Editor\VideoPlayer\Inspectors\VideoPlayerUIInspector.cs" />
     <Compile Include="Assets\DecentM\Editor\VideoPlayer\Inspectors\VideoPlaylistInspector.cs" />
     <Compile Include="Assets\DecentM\Editor\VideoPlayer\PluginManager.cs" />
-    <Compile Include="Assets\DecentM\Editor\VideoPlayer\SubtitleStore.cs" />
     <Compile Include="Assets\DecentM\Editor\VideoPlayer\Subtitles\Abstracts.cs" />
     <Compile Include="Assets\DecentM\Editor\VideoPlayer\Subtitles\Ast.cs" />
     <Compile Include="Assets\DecentM\Editor\VideoPlayer\Subtitles\Compiler.cs" />
@@ -94,9 +85,7 @@
     <Compile Include="Assets\DecentM\Editor\VideoPlayer\Subtitles\Tests\Srt.cs" />
     <Compile Include="Assets\DecentM\Editor\VideoPlayer\Subtitles\Tests\Vtt.cs" />
     <Compile Include="Assets\DecentM\Editor\VideoPlayer\Subtitles\Transformer.cs" />
-    <Compile Include="Assets\DecentM\Editor\VideoPlayer\VideoMetadataStore.cs" />
     <Compile Include="Assets\DecentM\Editor\VideoPlayer\VideoPlayerAutoFixer.cs" />
-    <Compile Include="Assets\DecentM\Editor\VideoPlayer\YTDLCommands.cs" />
     <Compile Include="Assets\DecentM\Editor\VideoRatelimit\VideoRatelimitAutoFixer.cs" />
     <Compile Include="Assets\Editor\AnimationRefactor.cs" />
     <Compile Include="Assets\Editor\ReplaceWithPrefab.cs" />
@@ -304,6 +293,9 @@
     <Reference Include="UnityEditor.Android.Extensions">
       <HintPath>D:\UnityEditors\2019.4.31f1\Editor\Data\PlaybackEngines\AndroidPlayer\UnityEditor.Android.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="NugetForUnity">
+      <HintPath>Assets\NuGet\Editor\NugetForUnity.dll</HintPath>
+    </Reference>
     <Reference Include="LibVLCSharp">
       <HintPath>Assets\VLCUnity\Plugins\Android\armeabi-v7a\LibVLCSharp.dll</HintPath>
     </Reference>
@@ -330,9 +322,6 @@
     </Reference>
     <Reference Include="unityplastic">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@1.10.2\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
-    </Reference>
-    <Reference Include="NugetForUnity">
-      <HintPath>Assets\NuGet\Editor\NugetForUnity.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>Library\PackageCache\com.unity.ext.nunit@1.0.6\net35\unity-custom\nunit.framework.dll</HintPath>
